@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;800&display=swap">
 <style>
-/* Layout: navy stage; copy and service picker on the left, cube of 27 pieces on the right, one center piece per service; badge showcase below. */
+/* Layout: navy stage; copy and service picker on the left, cube of 27 pieces on the right, one center piece per service; four-step process (assess, deploy, manage, protect) below. */
 :root {
   --bg: #060b18;
   --panel: #0c1428;
@@ -113,14 +113,23 @@ p.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 46ch
 .actions button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .glow { animation: none; } .cubelet, .cubelet.flying { transition-duration: .2s; } .cubelet.sel.flash .cf, .core .word.pop { animation: none; } }
 
-.showcase { max-width: 1100px; margin: 56px auto 0; border-top: 1px solid var(--line); padding-top: 32px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
-.showcase .big { width: min(220px, 60vw); height: auto; flex: none; filter: drop-shadow(0 12px 30px rgba(0,0,0,.6)); }
-.showcase .txt { min-width: 0; flex: 1 1 260px; }
-.showcase h2 { margin: 0 0 8px; font-size: 20px; }
-.showcase p { margin: 0; color: var(--muted); line-height: 1.6; max-width: 52ch; }
-.sizes { display: flex; gap: 18px; align-items: end; margin-top: 18px; flex-wrap: wrap; }
-.sizes svg { display: block; }
-.sizes small { display: block; text-align: center; font-family: var(--mono); font-size: 10px; color: var(--muted); margin-top: 6px; }
+.process { max-width: 1100px; margin: 64px auto 0; border-top: 1px solid var(--line); padding-top: 40px; }
+.process header { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-bottom: 28px; }
+.process header svg { width: 56px; height: 56px; flex: none; }
+.process h2 { margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 800; text-wrap: balance; }
+.process header p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; counter-reset: step; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.steps li { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 22px 20px 20px; min-width: 0; transition: border-color .25s, transform .25s; }
+.steps li:hover { border-color: var(--blue); transform: translateY(-3px); }
+.steps li::before { counter-increment: step; content: "0" counter(step); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; color: var(--red); }
+.steps h3 { margin: 10px 0 8px; font-size: 19px; font-weight: 800; }
+.steps p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.6; }
+.steps .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.steps .tags span { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); border: 1px solid var(--line); border-radius: 3px; padding: 3px 7px; }
+.cta { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px; color: var(--muted); font-size: 15px; }
+.cta strong { color: var(--fg); }
 </style>
 
 </head>
@@ -177,9 +186,8 @@ p.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 46ch
       <div class="brand"><svg viewBox="0 0 200 200" role="img" aria-label="D Consulting badge"><use href="#badge"/></svg><b>D Consulting</b></div>
       <div class="eyebrow">IT and security consulting</div>
       <h1>Thirty years of IT, <em>locked in</em> for your business.</h1>
-      <p class="lede">Every service is one piece of the whole.  Pick one to pull its piece out of the cube, or click the cube to break it apart.</p>
+      <p class="lede">We find the gaps before attackers do, build it right the first time, and keep it running so you never have to think about it.  Senior-level IT, without the senior-level payroll.</p>
       <div class="picker" id="picker"></div>
-      <div class="hint">CLICK A SERVICE · CLICK THE CUBE · DRAG TO SPIN</div>
     </section>
     <section class="stage" id="stage" aria-label="Interactive rotating cube">
       <div class="glow"></div>
@@ -190,17 +198,37 @@ p.lede { color: var(--muted); font-size: 16px; line-height: 1.6; max-width: 46ch
     </section>
   </div>
 
-  <section class="showcase">
-    <svg class="big" viewBox="0 0 200 200" role="img" aria-label="Enhanced D Consulting badge"><use href="#badge"/></svg>
-    <div class="txt">
-      <h2>The badge, redrawn</h2>
-      <p>Rebuilt as clean vector art so it stays sharp at any size.  Straight stripes, evenly spaced stars, a beveled "D" with a dark keyline and a soft shadow, inside a metal rim.</p>
-      <div class="sizes">
-        <div><svg width="96" height="96" viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg><small>96 px</small></div>
-        <div><svg width="48" height="48" viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg><small>48 px</small></div>
-        <div><svg width="24" height="24" viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg><small>24 px</small></div>
+  <section class="process" aria-labelledby="processTitle">
+    <header>
+      <svg viewBox="0 0 200 200" aria-hidden="true"><use href="#badge"/></svg>
+      <div>
+        <h2 id="processTitle">From first look to fully managed</h2>
+        <p>One team, start to finish.  No hand-offs, no finger-pointing.</p>
       </div>
-    </div>
+    </header>
+    <ol class="steps">
+      <li>
+        <h3>Assess</h3>
+        <p>We audit your network, Microsoft 365 tenant, security posture and licensing.  You get a plain-English report: what's at risk, what's wasted, and what to fix first.</p>
+        <div class="tags"><span>Security review</span><span>M365 audit</span><span>Roadmap</span></div>
+      </li>
+      <li>
+        <h3>Deploy</h3>
+        <p>Firewalls, Wi-Fi, servers, cloud migrations and Microsoft 365 rollouts, planned to the hour and cut over after hours.  Your team logs in Monday and it just works.</p>
+        <div class="tags"><span>Network builds</span><span>Cloud moves</span><span>Office moves</span></div>
+      </li>
+      <li>
+        <h3>Manage</h3>
+        <p>Apps, users, devices and vendors kept current.  Onboarding and offboarding, patching, license cleanup and contract renewals, handled before they become problems.</p>
+        <div class="tags"><span>App management</span><span>Licensing</span><span>Vendors</span></div>
+      </li>
+      <li>
+        <h3>Protect</h3>
+        <p>Backups that are actually tested, MFA everywhere, email security, and documentation that's ready when the auditors show up.</p>
+        <div class="tags"><span>Backup &amp; DR</span><span>SOX</span><span>HIPAA</span></div>
+      </li>
+    </ol>
+    <div class="cta"><strong>30 years.  10+ acquisitions.  Zero excuses.</strong></div>
   </section>
 </main>
 

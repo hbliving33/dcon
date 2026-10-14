@@ -13,7 +13,7 @@
 <body>
 <header class="site-header">
   <a class="logo" href="index.html"><img src="assets/img/badge.svg" alt="" width="68" height="68"><span>D Consulting</span></a>
-  <nav class="site-nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  <nav class="site-nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 </header>
 <main>
   <div class="wrap">
@@ -42,135 +42,16 @@
       </ul>
     </div>
   </section>
-
-  <section class="pain reveal" aria-labelledby="painTitle">
-    <div class="section-head">
-      <div class="eyebrow">Sound familiar?</div>
-      <h2 id="painTitle">If you nodded at any of these, <em>we should talk</em>.</h2>
-    </div>
-    <div class="pain-grid">
-      <a class="pain-tile" href="services.html#strategy"><span class="q">Your IT person left, and nobody knows the passwords.</span><span class="go">IT Strategy</span></a>
-      <a class="pain-tile" href="services.html#security"><span class="q">You're not sure you'd survive a ransomware attack.</span><span class="go">Cybersecurity</span></a>
-      <a class="pain-tile" href="services.html#m365"><span class="q">You're paying for Microsoft licenses nobody uses.</span><span class="go">Microsoft 365</span></a>
-      <a class="pain-tile" href="services.html#network"><span class="q">The Wi-Fi drops every afternoon, and everyone just lives with it.</span><span class="go">Network</span></a>
-      <a class="pain-tile" href="services.html#compliance"><span class="q">An audit is coming and the evidence is scattered everywhere.</span><span class="go">Compliance</span></a>
-      <a class="pain-tile" href="services.html#cloud"><span class="q">Your server closet is one bad day away from a very bad week.</span><span class="go">Cloud</span></a>
-    </div>
-  </section>
-
-  <section class="process reveal" aria-labelledby="processTitle">
-    <header>
-      <img src="assets/img/badge.svg" alt="" width="56" height="56">
-      <div>
-        <h2 id="processTitle">From first look to fully managed</h2>
-        <p>One team, start to finish.  No hand-offs, no finger-pointing.</p>
-      </div>
-    </header>
-    <ol class="steps">
-      <li>
-        <h3>Assess</h3>
-        <p>We audit your network, Microsoft 365 tenant, security posture and licensing.  You get a plain-English report: what's at risk, what's wasted, and what to fix first.</p>
-        <div class="tags"><span>Security review</span><span>M365 audit</span><span>Roadmap</span></div>
-      </li>
-      <li>
-        <h3>Deploy</h3>
-        <p>Firewalls, Wi-Fi, servers, cloud migrations and Microsoft 365 rollouts, planned to the hour and cut over after hours.  Your team logs in Monday and it just works.</p>
-        <div class="tags"><span>Network builds</span><span>Cloud moves</span><span>Office moves</span></div>
-      </li>
-      <li>
-        <h3>Manage</h3>
-        <p>Apps, users, devices and vendors kept current.  Onboarding and offboarding, patching, license cleanup and contract renewals, handled before they become problems.</p>
-        <div class="tags"><span>App management</span><span>Licensing</span><span>Vendors</span></div>
-      </li>
-      <li>
-        <h3>Protect</h3>
-        <p>Backups that are actually tested, MFA everywhere, email security, and documentation that's ready when the auditors show up.</p>
-        <div class="tags"><span>Backup &amp; DR</span><span>SOX</span><span>HIPAA</span></div>
-      </li>
-    </ol>
-    <div class="cta"><strong>30 years.  10+ acquisitions.  Zero excuses.</strong></div>
-  </section>
-  <section class="stats-band reveal" aria-label="Track record">
-    <div><b class="count" data-to="30">30</b><span>years leading IT</span></div>
-    <div><b class="count" data-to="10" data-suffix="+">10+</b><span>acquisitions integrated</span></div>
-    <div><b class="count" data-to="30" data-suffix="+">30+</b><span>facilities networked across 10+ countries</span></div>
-    <div><b class="count" data-to="4.5" data-prefix="$" data-suffix="M" data-dec="1">$4.5M</b><span>operating costs cut in two years</span></div>
-  </section>
-
-  <section class="check reveal" id="health-check" aria-labelledby="checkTitle">
-    <div class="check-copy">
-      <div class="eyebrow">Free 60-second IT health check</div>
-      <h2 id="checkTitle">Security based on <em>risk</em>, not fear.</h2>
-      <p class="lede">Six honest questions.  No email required.  You'll know where you stand before your coffee gets cold.</p>
-      <div class="gauge" aria-hidden="true">
-        <svg viewBox="0 0 200 120">
-          <path class="g-track" d="M20 110 A80 80 0 0 1 180 110"/>
-          <path class="g-fill" id="gaugeFill" d="M20 110 A80 80 0 0 1 180 110"/>
-        </svg>
-        <div class="g-num"><b id="gaugeNum">0</b><span>of 6</span></div>
-      </div>
-      <div class="verdict" id="verdict" aria-live="polite">
-        <strong id="verdictTitle">Answer the questions to see your score.</strong>
-        <p id="verdictText">Every "No" is a gap worth closing.  Most businesses we meet have at least two.</p>
-        <a class="btn btn-primary" id="checkCta" href="contact.html?topic=assessment#contactForm" hidden>Send us your results</a>
-      </div>
-    </div>
-    <ol class="questions" id="questions">
-      <li data-q="1"><p>Is multi-factor sign-in turned on for every account, including admins?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="2"><p>Have you actually restored something from backup in the last six months?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="3"><p>Do people who leave lose access to everything the same day?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="4"><p>Are your firewall, servers and laptops patched every month?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="5"><p>Do you know exactly which licenses you pay for, and who uses them?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="6"><p>Is there a written plan for what happens if ransomware hits tomorrow?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-    </ol>
-  </section>
-
-  <section class="industries reveal" aria-labelledby="indTitle">
-    <div class="section-head">
-      <div class="eyebrow">Who we work with</div>
-      <h2 id="indTitle">Built in industries where <em>downtime isn't an option</em>.</h2>
-    </div>
-    <div class="ind-grid">
-      <article class="ind"><div class="ind-code">FDA</div><h3>Life sciences and diagnostics</h3><p>Validated systems, certified labs and audit trails.  We've run IT inside FDA-regulated companies.</p></article>
-      <article class="ind"><div class="ind-code">ISO</div><h3>Medical devices</h3><p>Quality systems, global sites and the documentation that keeps regulators happy.</p></article>
-      <article class="ind"><div class="ind-code">OT</div><h3>Manufacturing</h3><p>Plants, warehouses and engineering centers that can't stop for a server reboot.</p></article>
-      <article class="ind"><div class="ind-code">SMB</div><h3>Growing businesses</h3><p>Senior-level IT for teams that have outgrown "the person who's good with computers."</p></article>
-    </div>
-  </section>
-
-  <section class="promises reveal" aria-labelledby="promTitle">
-    <div class="section-head">
-      <div class="eyebrow">Our promises</div>
-      <h2 id="promTitle">What you can count on, <em>every time</em>.</h2>
-    </div>
-    <ul class="prom-grid">
-      <li><h3>Reply in one business day</h3><p>Every request gets a real answer from a real person, fast.</p></li>
-      <li><h3>Quotes up front</h3><p>You'll know the cost before work starts.  No surprise invoices.</p></li>
-      <li><h3>Senior people only</h3><p>The people who scope your project are the ones who do it.</p></li>
-      <li><h3>You own the keys</h3><p>Passwords, documentation and admin access stay with you.  Always.</p></li>
-    </ul>
-  </section>
-
-  <section class="final-cta reveal">
-    <div>
-      <h2>Let's find your gaps <em>before someone else does</em>.</h2>
-      <p>Fill out a short form and we'll get back to you within one business day.</p>
-    </div>
-    <div class="final-actions">
-      <a class="btn btn-primary" href="contact.html#contactForm">Contact us</a>
-      <a class="btn btn-ghost" href="#health-check">Take the health check</a>
-    </div>
-  </section>
 </main>
 <footer class="site-footer">
   <div>
     <a class="logo" href="index.html"><img src="assets/img/badge.svg" alt="" width="40" height="40"><span>D Consulting</span></a>
     <p>Senior-level IT and security consulting.  Assess, deploy, manage and protect.</p>
   </div>
-  <nav aria-label="Footer"><a href="index.html">Home</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+  <nav aria-label="Footer"><a href="index.html">Home</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
   <small>&copy; 2026 D Consulting.  All rights reserved.</small>
 </footer>
 <script src="assets/js/cube.js"></script>
-<script src="assets/js/home.js"></script>
+<script src="assets/js/effects.js"></script>
 </body>
 </html>

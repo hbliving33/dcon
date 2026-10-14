@@ -81,7 +81,7 @@
     if (tier === "risk") { title.textContent = "High risk.  Let's fix that, fast."; text.textContent = "You have several open doors an attacker would love.  The good news: most can be closed in weeks, not months."; }
     else if (tier === "gaps") { title.textContent = "Solid start, with gaps to close."; text.textContent = "You've covered the basics.  The remaining gaps are exactly where most breaches start."; }
     else { title.textContent = "In good shape.  Let's keep it that way."; text.textContent = "You're ahead of most businesses.  A quick review makes sure nothing slipped through."; }
-    cta.href = `contact.html?topic=assessment&score=${score}`;
+    cta.href = `contact.html?topic=assessment&score=${score}#contactForm`;
     cta.hidden = false;
   }
 })();

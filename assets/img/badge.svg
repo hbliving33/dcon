@@ -10,7 +10,7 @@
       <stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/>
     </radialGradient>
     <polygon id="st" points="0,-5 1.18,-1.62 4.76,-1.55 1.9,0.62 2.94,4.05 0,2 -2.94,4.05 -1.9,0.62 -4.76,-1.55 -1.18,-1.62"/>
-    <path id="dShape" fill-rule="evenodd" d="M60 44 H104 C140 44 158 68 158 100 C158 132 140 156 104 156 H60 Z M86 70 H102 C122 70 131 82 131 100 C131 118 122 130 102 130 H86 Z"/>
+    <path id="dShape" fill-rule="evenodd" d="M51 44 H95 C131 44 149 68 149 100 C149 132 131 156 95 156 H51 Z M77 70 H93 C113 70 122 82 122 100 C122 118 113 130 93 130 H77 Z"/>
     <g id="badge">
       <circle cx="100" cy="100" r="96" fill="url(#rim)"/>
       <circle cx="100" cy="100" r="88" fill="#0b0f18"/>
@@ -22,13 +22,7 @@
           <rect x="0" y="137.2" width="200" height="15.4"/><rect x="0" y="168" width="200" height="15.4"/>
         </g>
         <rect x="0" y="0" width="96" height="106.4" fill="#0a2a6b"/>
-        <g fill="#fff">
-          <use href="#st" x="30" y="30"/><use href="#st" x="50" y="30"/><use href="#st" x="70" y="30"/>
-          <use href="#st" x="20" y="46"/><use href="#st" x="40" y="46"/><use href="#st" x="60" y="46"/><use href="#st" x="80" y="46"/>
-          <use href="#st" x="30" y="62"/><use href="#st" x="50" y="62"/><use href="#st" x="70" y="62"/>
-          <use href="#st" x="20" y="78"/><use href="#st" x="40" y="78"/><use href="#st" x="60" y="78"/><use href="#st" x="80" y="78"/>
-          <use href="#st" x="30" y="94"/><use href="#st" x="50" y="94"/><use href="#st" x="70" y="94"/>
-        </g>
+        <g fill="#fff"><use href="#st" transform="translate(85.8 20.8) scale(0.5)"/><use href="#st" transform="translate(72.0 27.2) scale(0.5)"/><use href="#st" transform="translate(81.2 27.2) scale(0.5)"/><use href="#st" transform="translate(90.4 27.2) scale(0.5)"/><use href="#st" transform="translate(39.8 46.4) scale(0.5)"/><use href="#st" transform="translate(35.2 52.8) scale(0.5)"/><use href="#st" transform="translate(30.6 59.2) scale(0.5)"/><use href="#st" transform="translate(39.8 59.2) scale(0.5)"/><use href="#st" transform="translate(35.2 65.6) scale(0.5)"/><use href="#st" transform="translate(30.6 72.0) scale(0.5)"/><use href="#st" transform="translate(39.8 72.0) scale(0.5)"/><use href="#st" transform="translate(26.0 78.4) scale(0.5)"/><use href="#st" transform="translate(35.2 78.4) scale(0.5)"/><use href="#st" transform="translate(21.4 84.8) scale(0.5)"/><use href="#st" transform="translate(30.6 84.8) scale(0.5)"/><use href="#st" transform="translate(39.8 84.8) scale(0.5)"/><use href="#st" transform="translate(26.0 91.2) scale(0.5)"/><use href="#st" transform="translate(35.2 91.2) scale(0.5)"/><use href="#st" transform="translate(21.4 97.6) scale(0.5)"/><use href="#st" transform="translate(30.6 97.6) scale(0.5)"/><use href="#st" transform="translate(39.8 97.6) scale(0.5)"/></g>
         <rect x="0" y="0" width="200" height="200" fill="url(#shade)"/>
         <!-- D: shadow, dark keyline, bevel, face -->
         <use href="#dShape" fill="#000" opacity=".45" transform="translate(5 6)"/>

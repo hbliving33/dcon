@@ -311,3 +311,6 @@ a { color: var(--blue); }
 /* Services: a lone card on the last row spans the full width */
 @media (min-width: 901px) { .grid .card:last-child:nth-child(3n+1) { grid-column: 1 / -1; } }
 @media (min-width: 561px) and (max-width: 900px) { .grid .card:last-child:nth-child(2n+1) { grid-column: 1 / -1; } }
+/* Why Us: a lone pain tile on the last row spans the full width */
+@media (min-width: 901px) { .pain-grid .pain-tile:last-child:nth-child(3n+1) { grid-column: 1 / -1; } }
+@media (min-width: 561px) and (max-width: 900px) { .pain-grid .pain-tile:last-child:nth-child(2n+1) { grid-column: 1 / -1; } }

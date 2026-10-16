@@ -6,7 +6,7 @@
     { name: "Cloud",         pos: [-1, 0, 0] },  // left
     { name: "Compliance",    pos: [0, -1, 0] },  // top
     { name: "IT Strategy",   pos: [0, 1, 0] },   // bottom
-    { name: "Physical Security", pos: [1, -1, 1] } // front-top-right corner
+    { name: "Access Control", pos: [1, -1, 1] } // front-top-right corner
   ];
   // rotation that brings each face toward the viewer (rotateX, rotateY), with a slight tilt
   const aim = { "0,0,1": [-14, -18], "1,0,0": [-14, -90 - 18], "0,0,-1": [-14, 180 - 18], "-1,0,0": [-14, 90 - 18], "0,-1,0": [-74, -18], "0,1,0": [74, -18], "1,-1,1": [-38, -63] };

@@ -1,12 +1,12 @@
 (() => {
   const services = [
-    { name: "Microsoft 365", pos: [0, 0, 1] },   // front
-    { name: "Cybersecurity", pos: [1, 0, 0] },   // right
-    { name: "Network",       pos: [0, 0, -1] },  // back
-    { name: "Cloud",         pos: [-1, 0, 0] },  // left
-    { name: "Compliance",    pos: [0, -1, 0] },  // top
-    { name: "IT Strategy",   pos: [0, 1, 0] },   // bottom
-    { name: "Access Control", pos: [1, -1, 1] } // front-top-right corner
+    { name: "Microsoft 365", slug: "microsoft-365", pos: [0, 0, 1] },   // front
+    { name: "Cybersecurity", slug: "cybersecurity", pos: [1, 0, 0] },   // right
+    { name: "Network", slug: "network",       pos: [0, 0, -1] },  // back
+    { name: "Cloud", slug: "cloud",         pos: [-1, 0, 0] },  // left
+    { name: "Compliance", slug: "compliance",    pos: [0, -1, 0] },  // top
+    { name: "IT Strategy", slug: "it-strategy",   pos: [0, 1, 0] },   // bottom
+    { name: "Access Control", slug: "access-control", pos: [1, -1, 1] } // front-top-right corner
   ];
   // rotation that brings each face toward the viewer (rotateX, rotateY), with a slight tilt
   const aim = { "0,0,1": [-14, -18], "1,0,0": [-14, -90 - 18], "0,0,-1": [-14, 180 - 18], "-1,0,0": [-14, 90 - 18], "0,-1,0": [-74, -18], "0,1,0": [74, -18], "1,-1,1": [-38, -63] };
@@ -17,6 +17,8 @@
   const stage = document.getElementById("stage");
   const coreText = document.getElementById("coreText");
   const picker = document.getElementById("picker");
+  const more = document.getElementById("svcMore");
+  const setMore = (i) => { if (!more) return; if (i < 0) { more.href = "services.html"; more.firstChild.textContent = "Explore all services "; } else { more.href = services[i].slug + ".html"; more.firstChild.textContent = "More about " + services[i].name + " "; } };
 
   // build 27 blocks
   const faceDefs = [["front", 2, 1], ["back", 2, -1], ["right", 0, 1], ["left", 0, -1], ["top", 1, -1], ["bottom", 1, 1]];
@@ -91,6 +93,7 @@
     const s = services[i], b = byKey(s.pos.join(","));
     current = i; const my = ++seq;
     picker.querySelectorAll("button").forEach((x, j) => x.setAttribute("aria-pressed", j === i));
+    setMore(i);
     blocks.forEach(o => { if (o !== b) { o.out = 0; o.el.classList.remove("sel", "flash"); } });
     hideWord();
     const [ax, ay] = aim[s.pos.join(",")];
@@ -112,6 +115,7 @@
     blocks.forEach(o => { o.out = 0; o.el.classList.remove("sel", "flash"); });
     placeAll(); hideWord();
     picker.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", false));
+    setMore(-1);
     current = -1;
   }
 

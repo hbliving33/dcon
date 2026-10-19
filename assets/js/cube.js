@@ -86,9 +86,10 @@
   const near = (cur, t) => cur + ((((t - cur) % 360) + 540) % 360 - 180);
 
   // selection
-  let current = -1, seq = 0;
+  let current = -1, seq = 0, userTouched = false, panelOpen = false;
+  addEventListener("dc:panel", e => { panelOpen = !!e.detail.open; if (!panelOpen && current >= 0) holdUntil = performance.now() + 1200; });
   function select(i, fromTour) {
-    if (!fromTour) stopTour();
+    if (!fromTour) { stopTour(); userTouched = true; }
     reassemble(true);
     const s = services[i], b = byKey(s.pos.join(","));
     current = i; const my = ++seq;
@@ -106,7 +107,8 @@
         if (my !== seq) return;
         b.el.classList.remove("flash"); void b.el.offsetWidth; b.el.classList.add("flash");
         showWord(s.name);
-        holdUntil = performance.now() + (fromTour ? 2600 : 5000);
+        holdUntil = fromTour ? performance.now() + 2600 : Infinity;
+        if (!fromTour) dispatchEvent(new CustomEvent("dc:service", { detail: { i, slug: s.slug, name: s.name, rect: b.el.getBoundingClientRect() } }));
       }, 380);
     }, reduce ? 50 : 650);
   }
@@ -118,11 +120,13 @@
     setMore(-1);
     current = -1;
   }
+  window.dcCube = { select: (i) => select(((i % services.length) + services.length) % services.length), release, count: services.length, names: services.map(s => s.name) };
 
   // explode
   let exploded = false, explodeTimer;
   function explode() {
     stopTour(); release(); clearTimeout(explodeTimer);
+    dispatchEvent(new CustomEvent("dc:close"));
     exploded = true;
     blocks.forEach(b => {
       const j = () => (Math.random() - .5) * 1.1;
@@ -150,6 +154,7 @@
   // tour
   let tourTimer = null, tourIdx = 0;
   function startTour() {
+    if (userTouched) return;
     stopTour(); tourIdx = 0;
     const step = () => { select(tourIdx % services.length, true); tourIdx++; tourTimer = setTimeout(step, 3400); };
     step();
@@ -191,7 +196,7 @@
       if (i >= 0 && !exploded) select(i);
       else if (exploded) reassemble();
       else explode();
-    } else if (current >= 0) {
+    } else if (current >= 0 && !panelOpen) {
       release();
     }
   };
@@ -203,7 +208,7 @@
       if (aimAt && now < holdUntil) {
         rx += (aimAt[0] - rx) * 0.09; ry += (aimAt[1] - ry) * 0.09;
       } else {
-        if (aimAt) { aimAt = null; if (!tourTimer && current >= 0) release(); }
+        if (aimAt) { aimAt = null; if (!tourTimer && current >= 0 && !panelOpen) release(); }
         ry += vy; rx += vx; vy += (idle - vy) * 0.03; vx *= 0.95; rx += (-22 - rx) * 0.01;
       }
     }

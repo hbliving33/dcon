@@ -85,3 +85,13 @@
     cta.hidden = false;
   }
 })();
+
+// Home testimonial strip: rotate quotes
+(() => {
+  const rot = document.getElementById("tqsRot");
+  if (!rot) return;
+  const items = [...rot.children];
+  if (items.length < 2 || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let i = 0;
+  setInterval(() => { items[i].classList.remove("on"); i = (i + 1) % items.length; items[i].classList.add("on"); }, 6000);
+})();

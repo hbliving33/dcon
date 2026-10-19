@@ -6,10 +6,11 @@
     { name: "Cloud", slug: "cloud",         pos: [-1, 0, 0] },  // left
     { name: "Compliance", slug: "compliance",    pos: [0, -1, 0] },  // top
     { name: "IT Strategy", slug: "it-strategy",   pos: [0, 1, 0] },   // bottom
-    { name: "Access Control", slug: "access-control", pos: [1, -1, 1] } // front-top-right corner
+    { name: "Access Control", slug: "access-control", pos: [1, -1, 1] }, // front-top-right corner
+    { name: "Business Automation", slug: "business-automation", pos: [-1, -1, 1] } // front-top-left corner
   ];
   // rotation that brings each face toward the viewer (rotateX, rotateY), with a slight tilt
-  const aim = { "0,0,1": [-14, -18], "1,0,0": [-14, -90 - 18], "0,0,-1": [-14, 180 - 18], "-1,0,0": [-14, 90 - 18], "0,-1,0": [-74, -18], "0,1,0": [74, -18], "1,-1,1": [-38, -63] };
+  const aim = { "0,0,1": [-14, -18], "1,0,0": [-14, -90 - 18], "0,0,-1": [-14, 180 - 18], "-1,0,0": [-14, 90 - 18], "0,-1,0": [-74, -18], "0,1,0": [74, -18], "1,-1,1": [-38, -63], "-1,-1,1": [-38, 27] };
   const glyphs = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&?/*|+<>[]{}$@=";
   const rnd = s => s[Math.floor(Math.random() * s.length)];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;

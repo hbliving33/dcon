@@ -16,6 +16,16 @@
   <nav class="site-nav" aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services</a><a href="why-us.html">Why Us</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 </header>
 <main>
+  <section class="ticker ticker-top" aria-label="Platforms we work with">
+    <div class="ticker-label">Platforms we work with</div>
+    <div class="ticker-window">
+      <ul class="ticker-track">
+        <li>Microsoft 365</li><li>Azure</li><li>Entra ID</li><li>Exchange</li><li>SharePoint</li><li>Teams</li>
+        <li>Intune</li><li>Power Apps</li><li>Power Automate</li><li>VMware</li><li>Cisco Meraki</li><li>UniFi</li>
+        <li>NetApp</li><li>Dell</li><li>HP</li><li>NetSuite</li><li>Synology</li>
+      </ul>
+    </div>
+  </section>
   <div class="wrap">
     <section class="copy">
       <div class="eyebrow" style="margin-top:0">IT and security consulting</div>
@@ -33,10 +43,13 @@
     </section>
   </div>
 
-  <section class="svc-panel" id="svcPanel" hidden aria-label="Service details">
-    <div class="sp-frame"><div id="spBody" aria-live="polite"></div></div>
-    <div class="sp-roller" aria-hidden="true"></div>
-  </section>
+  <div class="sp-overlay" id="spOverlay" hidden>
+    <div class="sp-backdrop" aria-hidden="true"></div>
+    <section class="svc-panel" id="svcPanel" role="dialog" aria-modal="true" aria-label="Service details">
+      <div class="sp-frame"><div id="spBody" aria-live="polite"></div></div>
+      <div class="sp-roller" aria-hidden="true"></div>
+    </section>
+  </div>
   <template id="sp-microsoft-365">
     <div class="sp-inner">
       <header class="sp-head sp-item">
@@ -240,16 +253,6 @@
       </div>
     </div>
   </template>
-  <section class="ticker" aria-label="Platforms we work with">
-    <div class="ticker-label">Platforms we work with</div>
-    <div class="ticker-window">
-      <ul class="ticker-track">
-        <li>Microsoft 365</li><li>Azure</li><li>Entra ID</li><li>Exchange</li><li>SharePoint</li><li>Teams</li>
-        <li>Intune</li><li>Power Apps</li><li>Power Automate</li><li>VMware</li><li>Cisco Meraki</li><li>UniFi</li>
-        <li>NetApp</li><li>Dell</li><li>HP</li><li>NetSuite</li><li>Synology</li>
-      </ul>
-    </div>
-  </section>
 </main>
 <footer class="site-footer">
   <div>

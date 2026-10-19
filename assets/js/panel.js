@@ -1,8 +1,9 @@
 // Home page: when a service is picked on the cube, its piece flies off the cube,
 // stretches into a red bar, and unrolls into a service panel under the hero.
 (() => {
+  const overlay = document.getElementById("spOverlay");
   const panel = document.getElementById("svcPanel");
-  if (!panel) return;
+  if (!overlay || !panel) return;
   const body = document.getElementById("spBody");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const glyphs = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#%&/*+$@";
@@ -48,28 +49,26 @@
 
   function open(detail) {
     const token = ++busy;
-    const wasOpen = !panel.hidden;
+    const wasOpen = !overlay.hidden;
     render(detail.slug);
     openSlug = detail.slug;
-    panel.hidden = false;
+    overlay.hidden = false;
+    document.documentElement.classList.add("sp-lock");
     panel.classList.remove("unrolled", "rolling");
+    body.parentElement.scrollTop = 0;
     void panel.offsetWidth;
+    overlay.classList.add("show");
     announce(true);
 
-    // Where the panel's top edge will sit once the page has scrolled to it
+    // The panel floats over the page, so its position is already in screen coordinates
     const r = panel.getBoundingClientRect();
-    const docTop = r.top + scrollY;
-    const maxScroll = document.documentElement.scrollHeight - innerHeight;
-    const targetScroll = Math.max(0, Math.min(docTop - 84, maxScroll));
-    const viewTop = docTop - targetScroll;
+    const viewTop = r.top;
 
     if (reduce) {
-      scrollTo(0, targetScroll);
       panel.classList.add("unrolled");
       decode(body.querySelector(".sp-title"));
       return;
     }
-    scrollTo({ top: targetScroll, behavior: "smooth" });
     const from = detail.rect && detail.rect.width ? detail.rect : { left: innerWidth / 2 - 30, top: 120, width: 60, height: 60 };
     fly(from, r.left, viewTop, r.width).then(() => {
       if (token !== busy) return;
@@ -84,23 +83,25 @@
   }
 
   function closePanel() {
-    if (panel.hidden) return;
+    if (overlay.hidden) return;
     const token = ++busy;
     panel.classList.remove("unrolled");
     panel.classList.add("rolling");
+    overlay.classList.remove("show");
     const done = () => {
       if (token !== busy) return;
-      panel.hidden = true; panel.classList.remove("rolling");
+      overlay.hidden = true; panel.classList.remove("rolling");
+      document.documentElement.classList.remove("sp-lock");
       openSlug = null;
       announce(false);
       if (window.dcCube) window.dcCube.release();
     };
     if (reduce) done(); else setTimeout(done, 520);
-    const stage = document.getElementById("stage");
-    if (stage) scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
   }
 
   addEventListener("dc:service", (e) => open(e.detail));
   addEventListener("dc:close", closePanel);
-  addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) closePanel(); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && !overlay.hidden) closePanel(); });
+  // Clicking anywhere outside the panel closes it
+  overlay.addEventListener("click", (e) => { if (!panel.contains(e.target)) closePanel(); });
 })();

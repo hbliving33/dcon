@@ -415,3 +415,12 @@ a { color: var(--blue); }
 .sp-item { opacity: 0; transform: translateY(16px); }
 .svc-panel.unrolled .sp-item { opacity: 1; transform: none; transition: opacity .5s ease, transform .6s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--d, 0ms) + 300ms); }
 @media (prefers-reduced-motion: reduce) { .sp-frame, .svc-panel.rolling .sp-frame { transition: none; } .sp-item { opacity: 1; transform: none; } .sp-roller { display: none; } }
+
+/* ---------- Service panel as a pop-up over the home page ---------- */
+.sp-overlay { position: fixed; inset: 0; z-index: 50; display: flex; justify-content: center; align-items: flex-start; padding: max(5vh, 20px) max(16px, env(safe-area-inset-right, 0px)) max(4vh, 16px) max(16px, env(safe-area-inset-left, 0px)); }
+.sp-backdrop { position: absolute; inset: 0; background: rgba(4, 8, 18, .62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; transition: opacity .45s ease; cursor: pointer; }
+.sp-overlay.show .sp-backdrop { opacity: 1; }
+.sp-overlay .svc-panel { position: relative; width: min(1100px, 100%); margin: 0; }
+.sp-overlay .sp-frame { max-height: calc(100vh - max(9vh, 36px)); max-height: calc(100dvh - max(9vh, 36px)); overflow-y: auto; overscroll-behavior: contain; }
+html.sp-lock { overflow: hidden; }
+.ticker-top { margin: 0 auto 28px; }

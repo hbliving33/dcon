@@ -49,9 +49,21 @@
   const title = document.getElementById("verdictTitle");
   const text = document.getElementById("verdictText");
   const cta = document.getElementById("checkCta");
-  const len = fill.getTotalLength();
-  fill.style.strokeDasharray = len;
-  fill.style.strokeDashoffset = len;
+  // Six gauge segments, one per question: green for Yes, red for No
+  fill.style.display = "none";
+  const svg = fill.ownerSVGElement, ns = "http://www.w3.org/2000/svg";
+  const pt = (deg) => [100 + 80 * Math.cos(deg * Math.PI / 180), 110 - 80 * Math.sin(deg * Math.PI / 180)];
+  const segs = [];
+  for (let i = 0; i < 6; i++) {
+    const a0 = 180 - i * 30 - 1.5, a1 = 180 - (i + 1) * 30 + 1.5;
+    const [x0, y0] = pt(a0), [x1, y1] = pt(a1);
+    const seg = document.createElementNS(ns, "path");
+    seg.setAttribute("d", `M${x0.toFixed(2)} ${y0.toFixed(2)} A80 80 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`);
+    seg.setAttribute("class", "g-seg");
+    svg.appendChild(seg); segs.push(seg);
+  }
+  svg.querySelector(".g-track").style.display = "none";
+  const order = [...qs.querySelectorAll("li")].map((li) => li.dataset.q);
 
   qs.addEventListener("click", (e) => {
     const b = e.target.closest("button[data-v]");
@@ -69,7 +81,11 @@
     const done = Object.keys(answers).length;
     const score = Object.values(answers).reduce((a, b) => a + b, 0);
     num.textContent = score;
-    fill.style.strokeDashoffset = len * (1 - score / 6);
+    order.forEach((q, i) => {
+      const st = q in answers ? (answers[q] ? "yes" : "no") : "";
+      if (segs[i].dataset.st !== st) { segs[i].dataset.st = st; segs[i].classList.remove("pop"); void segs[i].getBoundingClientRect(); segs[i].classList.add("pop"); }
+    });
+    num.classList.remove("bump"); void num.offsetWidth; num.classList.add("bump");
     const tier = score <= 2 ? "risk" : score <= 4 ? "gaps" : "good";
     fill.dataset.tier = tier;
     if (done < 6) {

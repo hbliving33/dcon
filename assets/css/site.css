@@ -547,3 +547,4 @@ html.sp-lock { overflow: hidden; }
 @keyframes gbump { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
 .g-num b { display: inline-block; }
 @media (prefers-reduced-motion: reduce) { .g-seg.pop, .g-num b.bump { animation: none; } }
+.page-hero + .check { margin-top: 28px; }

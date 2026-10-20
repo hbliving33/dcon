@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/img/badge.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;600;800&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=d71b6f1e">
+<link rel="stylesheet" href="assets/css/site.css?v=3ce89992">
 </head>
 <body>
 <header class="site-header">
@@ -21,6 +21,34 @@
     <div class="eyebrow">Why D Consulting</div>
     <h1>Why teams choose <em>D Consulting</em>.</h1>
     <p class="lede">Thirty years of running IT inside companies where downtime and audit findings aren't an option.  Here's what that means for you.</p>
+  </section>
+
+  <section class="check" id="health-check" aria-labelledby="checkTitle">
+    <div class="check-copy">
+      <div class="eyebrow">Free 60-second IT health check</div>
+      <h2 id="checkTitle">Security based on <em>risk</em>, not fear.</h2>
+      <p class="lede">Six honest questions.  No email required.  You'll know where you stand before your coffee gets cold.</p>
+      <div class="gauge" aria-hidden="true">
+        <svg viewBox="0 0 200 120">
+          <path class="g-track" d="M20 110 A80 80 0 0 1 180 110"/>
+          <path class="g-fill" id="gaugeFill" d="M20 110 A80 80 0 0 1 180 110"/>
+        </svg>
+        <div class="g-num"><b id="gaugeNum">0</b><span>of 6 secure</span></div>
+      </div>
+      <div class="verdict" id="verdict" aria-live="polite">
+        <strong id="verdictTitle">Answer the questions to see your score.</strong>
+        <p id="verdictText">Every "No" is a gap worth closing.  Most businesses we meet have at least two.</p>
+        <a class="btn btn-primary" id="checkCta" href="contact.html?topic=assessment#contactForm" hidden>Send us your results</a>
+      </div>
+    </div>
+    <ol class="questions" id="questions">
+      <li data-q="1"><p>Is multi-factor sign-in turned on for every account, including admins?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+      <li data-q="2"><p>Have you actually restored something from backup in the last six months?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+      <li data-q="3"><p>Do people who leave lose access to everything the same day?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+      <li data-q="4"><p>Are your firewall, servers and laptops patched every month?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+      <li data-q="5"><p>Do you know exactly which licenses you pay for, and who uses them?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+      <li data-q="6"><p>Is there a written plan for what happens if ransomware hits tomorrow?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
+    </ol>
   </section>
   </div>
 
@@ -107,33 +135,6 @@
     <div><b class="count" data-to="4.5" data-prefix="$" data-suffix="M" data-dec="1">$4.5M</b><span>operating costs cut in two years</span></div>
   </section>
 
-  <section class="check reveal" id="health-check" aria-labelledby="checkTitle">
-    <div class="check-copy">
-      <div class="eyebrow">Free 60-second IT health check</div>
-      <h2 id="checkTitle">Security based on <em>risk</em>, not fear.</h2>
-      <p class="lede">Six honest questions.  No email required.  You'll know where you stand before your coffee gets cold.</p>
-      <div class="gauge" aria-hidden="true">
-        <svg viewBox="0 0 200 120">
-          <path class="g-track" d="M20 110 A80 80 0 0 1 180 110"/>
-          <path class="g-fill" id="gaugeFill" d="M20 110 A80 80 0 0 1 180 110"/>
-        </svg>
-        <div class="g-num"><b id="gaugeNum">0</b><span>of 6 secure</span></div>
-      </div>
-      <div class="verdict" id="verdict" aria-live="polite">
-        <strong id="verdictTitle">Answer the questions to see your score.</strong>
-        <p id="verdictText">Every "No" is a gap worth closing.  Most businesses we meet have at least two.</p>
-        <a class="btn btn-primary" id="checkCta" href="contact.html?topic=assessment#contactForm" hidden>Send us your results</a>
-      </div>
-    </div>
-    <ol class="questions" id="questions">
-      <li data-q="1"><p>Is multi-factor sign-in turned on for every account, including admins?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="2"><p>Have you actually restored something from backup in the last six months?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="3"><p>Do people who leave lose access to everything the same day?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="4"><p>Are your firewall, servers and laptops patched every month?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="5"><p>Do you know exactly which licenses you pay for, and who uses them?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-      <li data-q="6"><p>Is there a written plan for what happens if ransomware hits tomorrow?</p><div class="yn"><button type="button" data-v="1">Yes</button><button type="button" data-v="0">No</button></div></li>
-    </ol>
-  </section>
 
   <section class="industries reveal" aria-labelledby="indTitle">
     <div class="section-head">

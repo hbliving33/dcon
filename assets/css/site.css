@@ -537,3 +537,13 @@ html.sp-lock { overflow: hidden; }
 .hs-svc.on .hs-list li:nth-child(3) { transition-delay: .4s; }
 @media (prefers-reduced-motion: reduce) { .hs-item, .hs-list li, .hs-svc::before { transition: none; } }
 .tqs { max-width: 1100px; margin-left: auto; margin-right: auto; box-sizing: border-box; }
+/* Health check gauge: one segment per question */
+.g-seg { fill: none; stroke: var(--line); stroke-width: 16; transition: stroke .35s; }
+.g-seg[data-st="yes"] { stroke: #3ccf8e; }
+.g-seg[data-st="no"] { stroke: var(--red); }
+.g-seg.pop { animation: gseg .5s ease; }
+@keyframes gseg { 0% { stroke-width: 16; } 40% { stroke-width: 24; } 100% { stroke-width: 16; } }
+.g-num b.bump { animation: gbump .4s ease; }
+@keyframes gbump { 0% { transform: scale(1); } 40% { transform: scale(1.18); } 100% { transform: scale(1); } }
+.g-num b { display: inline-block; }
+@media (prefers-reduced-motion: reduce) { .g-seg.pop, .g-num b.bump { animation: none; } }
